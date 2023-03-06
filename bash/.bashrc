@@ -93,3 +93,9 @@ if ! shopt -oq posix; then
         . /etc/bash_completion
     fi
 fi
+
+# macos
+# ------------------------------------------------------------------------------
+
+# supress default shell warning for bash
+export BASH_SILENCE_DEPRECATION_WARNING=1
