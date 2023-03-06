@@ -1,0 +1,18 @@
+# MacOS
+.DS_Store
+
+# JetBrains
+.idea/
+
+# VSCode
+.vscode/
+
+# NodeJS
+node_modules/
+
+# Logfiles
+log/
+*.log
+
+# Dotenv files
+*.env
