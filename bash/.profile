@@ -22,3 +22,19 @@ export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
 # ------------------------------------------------------------------------------
 [ -d "$HOME/bin" ] && PATH="$HOME/bin:$PATH"
 [ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
+
+# macos specific setup
+# ------------------------------------------------------------------------------
+case "$(uname -s)" in
+    Darwin*)
+        # setup homebrew
+        if [ -d "/opt/homebrew" ]; then 
+            export HOMEBREW_PREFIX="/opt/homebrew"
+            export HOMEBREW_CELLAR="$HOMEBREW_PREFIX/Cellar"
+            export HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX"
+            export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin${PATH+:$PATH}";
+            export MANPATH="$HOMEBREW_PREFIX/share/man${MANPATH+:$MANPATH}:";
+            export INFOPATH="$HOMEBREW_PREFIX/share/info:${INFOPATH:-}";
+        fi
+    ;;
+esac
