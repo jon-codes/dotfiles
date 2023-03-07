@@ -13,7 +13,6 @@ safe_shopt() {
 
 # general options
 # ------------------------------------------------------------------------------
-
 safe_shopt autocd               # directories as commands are executed as if arguments to `cd`
 safe_shopt cdable_vars          # `cd` can use variable values as the directory argument
 safe_shopt cdspell              # correct small errors in `cd` directory components
@@ -23,7 +22,6 @@ safe_shopt checkwinsize         # update the window size after each command
 
 # history
 # ------------------------------------------------------------------------------
-
 HISTSIZE=100000                  # set a large session history size
 HISTFILESIZE=$HISTSIZE           # set a large history file size
 HISTCONTROL=ignoreboth:erasedups # ignoreboth: don't add commands starting with whitespace or sequential duplicates to history
@@ -34,7 +32,6 @@ safe_shopt cmdhist    # save multi-line commands as a single history entry
 
 # prompt
 # ------------------------------------------------------------------------------
-
 set_prompt() {
     local color_prompt
 
@@ -77,13 +74,10 @@ set_prompt
 
 # aliases
 # ------------------------------------------------------------------------------
-
 if [ -f ~/.bash_aliases ]; then . ~/.bash_aliases; fi
 
-# completions
+# bash-completions
 # ------------------------------------------------------------------------------
-
-# enable programmable completion features
 case "$OSTYPE" in
     darwin*)
         [[ -r "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" ]] && \
@@ -97,11 +91,9 @@ esac
 
 # macos
 # ------------------------------------------------------------------------------
-
 case "$OSTYPE" in
     darwin*)
         # supress default shell warning for bash
         export BASH_SILENCE_DEPRECATION_WARNING=1
     ;;
 esac
-
