@@ -36,5 +36,9 @@ case "$(uname -s)" in
             export MANPATH="$HOMEBREW_PREFIX/share/man${MANPATH+:$MANPATH}:";
             export INFOPATH="$HOMEBREW_PREFIX/share/info:${INFOPATH:-}";
         fi
+
+        # setup gpg
+        GPG_TTY="$(tty)"
+        export GPG_TTY
     ;;
 esac
