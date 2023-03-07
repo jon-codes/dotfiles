@@ -51,14 +51,14 @@ set_prompt() {
         local bold; bold=$(tput bold)
         local red; red=$(tput setaf 1)
         # local green; green=$(tput setaf 2)
-        # local yellow; yellow=$(tput setaf 3)
-        local blue; blue=$(tput setaf 4)
+        local yellow; yellow=$(tput setaf 3)
+        # local blue; blue=$(tput setaf 4)
         # local magenta; magenta=$(tput setaf 5)
         local gray; gray=$(tput setaf 8)
         local reset; reset=$(tput sgr0)
 
         local exit_prompt="\[$gray\]\$(code=\${?##0};echo \${code:+\"[\[$red\]\$code\[$gray\]] \"})\[$reset\]"
-        PS1="\[$gray\]\t\[$reset\] \[$bold$blue\]\w\[$reset\] $exit_prompt\$ "
+        PS1="\[$gray\]\t\[$reset\] \[$bold$yellow\]\w\[$reset\] $exit_prompt\$ "
     else
         local exit_prompt="\$(code=\${?##0};echo \${code:+\"[\$code] \"})"
         PS1="\t \w $exit_prompt\$ "
