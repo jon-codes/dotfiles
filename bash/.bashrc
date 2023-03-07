@@ -72,10 +72,6 @@ set_prompt() {
 
 set_prompt
 
-# aliases
-# ------------------------------------------------------------------------------
-if [ -f ~/.bash_aliases ]; then . ~/.bash_aliases; fi
-
 # bash-completions
 # ------------------------------------------------------------------------------
 case "$OSTYPE" in
@@ -89,11 +85,10 @@ case "$OSTYPE" in
     ;;
 esac
 
-# macos
+# aliases
 # ------------------------------------------------------------------------------
-case "$OSTYPE" in
-    darwin*)
-        # supress default shell warning for bash
-        export BASH_SILENCE_DEPRECATION_WARNING=1
-    ;;
-esac
+if [ -f ~/.bash_aliases ]; then . ~/.bash_aliases; fi
+
+# per-machine config
+# ------------------------------------------------------------------------------
+if [ -f ~/.bash_private ]; then . ~/.bash_private; fi
