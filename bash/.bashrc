@@ -84,18 +84,24 @@ if [ -f ~/.bash_aliases ]; then . ~/.bash_aliases; fi
 # ------------------------------------------------------------------------------
 
 # enable programmable completion features
-if ! shopt -oq posix; then
-    if [ -f /usr/share/bash-completion/bash_completion ]; then
-        . /usr/share/bash-completion/bash_completion
-    elif [ -r /usr/local/etc/profile.d/bash_completion.sh ]; then
-        . /usr/local/etc/profile.d/bash_completion.sh
-    elif [ -f /etc/bash_completion ]; then
-        . /etc/bash_completion
-    fi
-fi
+case "$OSTYPE" in
+    darwin*)
+        [[ -r "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" ]] && \
+            . "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
+    ;;
+    *)
+        [[ -f /usr/share/bash-completion/bash_completion ]] && \
+            . /usr/share/bash-completion/bash_completion
+    ;;
+esac
 
 # macos
 # ------------------------------------------------------------------------------
 
-# supress default shell warning for bash
-export BASH_SILENCE_DEPRECATION_WARNING=1
+case "$OSTYPE" in
+    darwin*)
+        # supress default shell warning for bash
+        export BASH_SILENCE_DEPRECATION_WARNING=1
+    ;;
+esac
+
