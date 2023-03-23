@@ -19,6 +19,7 @@ safe_shopt cdspell              # correct small errors in `cd` directory compone
 safe_shopt dirspell             # correct small errors in directory completion
 safe_shopt interactive_comments # allow `#` comments in the interactive shell
 safe_shopt checkwinsize         # update the window size after each command
+safe_shopt pipefail             # use the exit code of the last command when using a pipeline
 
 # history
 # ------------------------------------------------------------------------------
